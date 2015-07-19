@@ -16,7 +16,7 @@ key = Math.round(random(0,max));
 color16(ColorArray[key])
 
 
-//取得
+//フレームのランダムカラー取得
 var RandomColor = comp("_global").layer("gData").effect("RandomColor")("カラー")
 var c = [1,1,1,1];
 if(time>outPoint-3){
@@ -49,30 +49,29 @@ if(time>outPoint-3){
 c
 
 
-//取得
+//文字のランダムカラー取得
 var RandomColor = comp("_global").layer("gData").effect("RandomColor")("カラー")
 var c = [1,1,1,1];
-if(time>inPoint+1.5){
-    //1秒以降は白に
+if(time>inPoint+1.3){
     c = [1,1,1,1]
-}else if(time>inPoint+0.6){
-    //0.6秒以降は徐々に白に
-    var key = time-inPoint-0.6;
+}else if(time>inPoint+0.8){
+    //0.8秒以降は徐々に白に
+    var key = time-inPoint-0.8;
     c[0] = key;
     c[1] = RandomColor[1]+key;
     c[2] = RandomColor[2]+key;
     c[3] = RandomColor[3]+key;
-}else if(time>inPoint+0.4){
+}else if(time>inPoint+0.6){
     c[0] = 0;
     c[1] = RandomColor[1];
     c[2] = RandomColor[2];
     c[3] = RandomColor[3];
-}else if(time>inPoint+0.2){
-    c[0] = RandomColor[0];
-    c[1] = 0.5;
-    c[2] = RandomColor[2];
+}else if(time>inPoint+0.4){ //赤系
+    c[0] = RandomColor[1];
+    c[1] = RandomColor[2];
+    c[2] = RandomColor[0];
     c[3] = RandomColor[3];
-}else if(time>inPoint+0.1){
+}else if(time>inPoint+0.2){ //黄色系
     c[0] = RandomColor[0]+0.5;
     c[1] = RandomColor[1]+0.5;
     c[2] = 0;
@@ -86,14 +85,16 @@ c
 
 // タイムリマップ
 
-var speed = 2;
+var range = 3; //はじめと終わり、本来の秒数
+var effectSpeed = 2; //何倍の早さで動かすか
 
 var currentTime;
-var range = 3;
-if(time>(outPoint-range)){
-    currentTime = time - ( outPoint-range ) + range; //非常にバカっぽい
-}else if(time<inPoint+(range*speed)){
-    currentTime = time/speed - inPoint;
+//0じゃないことが確認できれば
+if(time>outPoint-(range/effectSpeed)){
+    currentTime = (range*2)-(outPoint-time) * effectSpeed; //非常にバカっぽい
+}else if(time<inPoint+(range/effectSpeed)){
+    // currentTime = time*speed - inPoint;
+    currentTime = (time - inPoint) * effectSpeed;
 }else{
     currentTime = range;
 }
