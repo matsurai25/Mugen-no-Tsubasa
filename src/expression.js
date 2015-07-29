@@ -99,3 +99,4 @@ if(time>outPoint-(range/effectSpeed)){
     currentTime = range;
 }
 currentTime;
+
