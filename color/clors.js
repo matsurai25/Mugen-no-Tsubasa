@@ -1,0 +1,9 @@
+colors["r"] = "e22d6e";
+colors["y"] = "ffd697";
+colors["db"] = "5b7ab6";
+colors["lg"] = "b1e8d0";
+colors["w"] = "fffaf6";
+colors["g"] = "5a6070";
+colors["lb"] = "89ffff";
+colors["p"] = "fb80f3";
+colors["b"] = "0086fa";
