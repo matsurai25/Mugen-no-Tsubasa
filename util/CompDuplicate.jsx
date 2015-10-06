@@ -81,7 +81,7 @@ if ((activeItem == null) || !(activeItem instanceof CompItem)) {
 }else{
   letters.forEach(function(_){
     var curComp = activeItem.duplicate();
-    curComp.name = "letter_"+_;
+    curComp.name = "borders_"+_+"_dark";
   })
 }
 
