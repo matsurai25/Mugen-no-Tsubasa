@@ -83,20 +83,4 @@ if(time>inPoint+1.3){
 c
 
 
-// タイムリマップ
-
-var range = 3; //はじめと終わり、本来の秒数
-var effectSpeed = 2; //何倍の早さで動かすか
-
-var currentTime;
-//0じゃないことが確認できれば
-if(time>outPoint-(range/effectSpeed)){
-    currentTime = (range*2)-(outPoint-time) * effectSpeed; //非常にバカっぽい
-}else if(time<inPoint+(range/effectSpeed)){
-    // currentTime = time*speed - inPoint;
-    currentTime = (time - inPoint) * effectSpeed;
-}else{
-    currentTime = range;
-}
-currentTime;
 
